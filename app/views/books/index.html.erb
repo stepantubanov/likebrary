@@ -1,0 +1,7 @@
+<% @books.each do |book| %>
+  <li>
+    <h3><%= book.title %></h3>
+    <p><%= book.isbn %></p>
+    <p>Average Rating: <%= book.rating %></p>
+  </li>
+<% end %>
