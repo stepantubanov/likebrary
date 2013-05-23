@@ -1,6 +1,8 @@
 class RatingsController < ApplicationController
+  before_filter :authenticate_user!
+
   def update
-    rating = Rating.where(rating_attributes).first || Rating.new(rating_attributes)
+    rating = Rating.for(rating_attributes)
 
     rating.value = params[:rating][:value]
     rating.save!

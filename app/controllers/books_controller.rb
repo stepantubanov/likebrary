@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+
   def new
     @book = Book.new
     @book.ratings.build(user: current_user)

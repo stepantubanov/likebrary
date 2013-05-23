@@ -1,11 +1,5 @@
 <div class="row">
   <div class="span12">
-    <%= link_to 'Add book', new_book_path, class: 'btn' %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span12">
     <%= render(@books) or raw('<em class="no-books">No books have been added yet.</em>') %>
 
     <%= paginate @books %>

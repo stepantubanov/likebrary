@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 feature 'Book addition' do
+  let(:user) { User.create!(email: 'bob@example.com', password: 'password') }
+
+  background do
+    login(user)
+  end
+
   scenario 'user adds a new book' do
     visit root_path
     click_link 'Add book'
