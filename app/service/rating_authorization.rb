@@ -8,7 +8,7 @@ class RatingAuthorization
   end
 
   def request
-    @user == @rating.user
+    @user.admin? or @user == @rating.user
   end
 
   def request!

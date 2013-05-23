@@ -1,7 +1,7 @@
 require './app/service/rating_authorization'
 
 describe RatingAuthorization do
-  let(:user) { stub(:user) }
+  let(:user) { stub(:user, admin?: false) }
   let(:rating) { stub(:rating) }
   let(:authorization) { RatingAuthorization.new(rating, user) }
 
@@ -24,18 +24,23 @@ describe RatingAuthorization do
   describe '#request' do
     subject { authorization.request }
 
-    let(:rating_author) { stub(:rating_author) }
+    let(:rating_author) { stub(:rating_author, admin?: false) }
     before do
       rating.stub(:user).and_return(rating_author)
     end
 
-    context 'when user is the author of the rating' do
+    context 'when the author of the rating' do
       let(:user) { rating_author }
       it { should be_true }
     end
 
-    context 'when another user is trying' do
+    context 'when another user' do
       it { should be_false }
+    end
+
+    context 'when admin user' do
+      let(:user) { stub(:user, admin?: true) }
+      it { should be_true }
     end
   end
 end
