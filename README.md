@@ -16,3 +16,9 @@
 4. User can see all books on the site and a list of people who have read them and each person's rating of the book.
 
 5. Admin can change a users rating of a book.
+
+-----
+
+http://likebrary.herokuapp.com
+
+Seed data from goodreads.com.
