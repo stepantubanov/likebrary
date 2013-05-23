@@ -3,6 +3,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 gem 'strong_parameters'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3'

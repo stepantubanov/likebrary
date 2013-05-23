@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<header class="navbar navbar-fixed-top">
+  <nav class="navbar-inner">
+    <div class="container">
+      <h2 class="pull-left">Likebrary</h2>
+      <% if user_signed_in? %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, id: 'log-out', class: 'btn pull-right' %>
+      <% end %>
+    </div>
+  </nav>
+</header>
+
 <div class="container">
   <div class="content">
     <%= yield %>
