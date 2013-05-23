@@ -4,6 +4,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'strong_parameters'
 gem 'devise'
+gem 'kaminari'
 
 group :development, :test do
   gem 'quiet_assets'

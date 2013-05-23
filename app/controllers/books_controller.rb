@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.includes(ratings: :user).all
+    @books = Book.includes(ratings: :user).page(params[:page]).per(10)
 
     if current_user
       @books.each do |book|

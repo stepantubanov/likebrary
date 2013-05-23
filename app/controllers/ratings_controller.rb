@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
     rating.value = params[:rating][:value]
     rating.save!
 
-    redirect_to root_path
+    redirect_to :back
   end
 
   private
