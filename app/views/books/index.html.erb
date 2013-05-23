@@ -1,7 +1,17 @@
-<% @books.each do |book| %>
-  <li>
-    <h3><%= book.title %></h3>
-    <p><%= book.isbn %></p>
-    <p>Average Rating: <%= book.rating %></p>
-  </li>
-<% end %>
+<div class="row">
+  <div class="span12">
+    <%= link_to 'Add book', new_book_path, class: 'btn' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <% @books.each do |book| %>
+      <li>
+        <h3><%= book.title %></h3>
+        <p><%= book.isbn %></p>
+        <p>Average Rating: </p>
+      </li>
+    <% end %>
+  </div>
+</div>
