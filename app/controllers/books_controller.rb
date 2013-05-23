@@ -6,6 +6,12 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
+    # TODO: would be better done with a form object
+    if @book.ratings.present?
+      @book.ratings.first.user = current_user
+    end
+
     if @book.save
       redirect_to books_path, notice: "Thanks for adding #{@book.title} to our collection"
     else

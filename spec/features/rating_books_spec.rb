@@ -19,6 +19,9 @@ feature 'Rating books' do
 
     page.should have_content 'The Hobbit'
     page.should have_content 'Average Rating: 5'
+    within '.rating' do
+      page.should have_checked_field '5'
+    end
   end
 
   scenario 'user rates existing book the first time' do
