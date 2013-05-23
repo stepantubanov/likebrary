@@ -19,6 +19,18 @@
     </div>
   </div>
 
+  <div class="control-group">
+    <div class="controls rating">
+      <% 1.upto(5) do |rating| %>
+        <label class="radio inline">
+          <%= f.fields_for :ratings do |r| %>
+            <%= r.radio_button :value, rating %> <%= rating %>
+          <% end %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.submit 'Add', class: 'btn btn-primary' %>
   </div>
