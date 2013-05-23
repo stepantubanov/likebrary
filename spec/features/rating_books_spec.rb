@@ -32,7 +32,7 @@ feature 'Rating books' do
     within '.rating' do
       choose '4'
     end
-    click_button 'Rate'
+    click_button 'save'
 
     within '.rating' do
       page.should have_checked_field '4'
@@ -52,7 +52,7 @@ feature 'Rating books' do
     within '.rating' do
       choose '4'
     end
-    click_button 'Rate'
+    click_button 'save'
 
     within '.rating' do
       page.should have_checked_field '4'

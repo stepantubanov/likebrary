@@ -11,3 +11,25 @@ body {
     margin-left: 10px;
   }
 }
+
+h3 {
+  margin-bottom: 0;
+}
+
+.ratings {
+  width: 470px;
+}
+
+.rating {
+  display: inline-block;
+  padding-left: 3px;
+
+  label {
+    display: inline;
+    padding-bottom: 7px;
+  }
+
+  .submit-rating {
+    margin-left: 10px;
+  }
+}
