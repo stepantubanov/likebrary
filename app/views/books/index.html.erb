@@ -11,6 +11,19 @@
         <h3><%= book.title %></h3>
         <p><%= book.isbn %></p>
         <p>Average Rating: <%= book.average_rating %></p>
+
+        <% if user_signed_in? %>
+          <%= form_for book.rating_for(current_user), method: :put, url: book_rating_path(book, current_user) do |f| %>
+            <div class="rating">
+              <% 1.upto(5) do |rating| %>
+                <label class="radio inline">
+                  <%= f.radio_button :value, rating %> <%= rating %>
+                </label>
+              <% end %>
+            </div>
+            <%= f.submit 'Rate' %>
+          <% end %>
+        <% end %>
       </li>
     <% end %>
   </div>

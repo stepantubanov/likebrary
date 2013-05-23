@@ -20,4 +20,42 @@ feature 'Rating books' do
     page.should have_content 'The Hobbit'
     page.should have_content 'Average Rating: 5'
   end
+
+  scenario 'user rates existing book the first time' do
+    book = Book.create!(title: 'The Hobbit', isbn: '0618260307')
+
+    visit root_path
+
+    # Assuming there is only one book
+    within '.rating' do
+      choose '4'
+    end
+    click_button 'Rate'
+
+    page.should have_content 'Average Rating: 4'
+    within '.rating' do
+      page.should have_checked_field '4'
+    end
+  end
+
+  scenario 'user changes a rating for a book' do
+    book = Book.create!(title: 'The Hobbit', isbn: '0618260307')
+    book.ratings.create!(user: user, value: 3)
+
+    visit root_path
+    within '.rating' do
+      page.should have_checked_field '3'
+    end
+
+    # Assuming there is only one book
+    within '.rating' do
+      choose '4'
+    end
+    click_button 'Rate'
+
+    within '.rating' do
+      page.should have_checked_field '4'
+    end
+    page.should have_content 'Average Rating: 4'
+  end
 end

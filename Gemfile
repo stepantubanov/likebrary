@@ -6,6 +6,7 @@ gem 'strong_parameters'
 gem 'devise'
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'sqlite3'
 end
 group :production do

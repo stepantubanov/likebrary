@@ -8,4 +8,8 @@ class Book < ActiveRecord::Base
   def average_rating
     ratings.first.try(:value)
   end
+
+  def rating_for(user)
+    ratings.where(user_id: user.id).first || Rating.new(book: self, user: user)
+  end
 end
