@@ -29,6 +29,11 @@ describe RatingAuthorization do
       rating.stub(:user).and_return(rating_author)
     end
 
+    context 'when not logged in' do
+      let(:user) { nil }
+      it { should be_false }
+    end
+
     context 'when the author of the rating' do
       let(:user) { rating_author }
       it { should be_true }
