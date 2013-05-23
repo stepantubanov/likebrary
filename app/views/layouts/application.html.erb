@@ -12,9 +12,14 @@
   <nav class="navbar-inner">
     <div class="container">
       <h2 class="pull-left">Likebrary</h2>
-      <% if user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path, method: :delete, id: 'log-out', class: 'btn pull-right' %>
-      <% end %>
+      <div class="links">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn pull-right' %>
+        <% else %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn pull-right' %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn pull-right' %>
+        <% end %>
+      </div>
     </div>
   </nav>
 </header>
