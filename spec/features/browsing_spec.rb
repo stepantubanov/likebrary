@@ -3,11 +3,11 @@ require 'spec_helper'
 feature 'Browsing' do
   background do
     [
-      [ "To Kill a Mockingbird", "0061120081", 4.22 ],
-      [ "Pride and Prejudice", "0679783261", 4.23 ],
-      [ "Jane Eyre", "0142437204", 4.06 ],
-      [ "The Little Prince", "0156012197", 4.21 ]
-    ].each do |title, isbn, average_rating|
+      ["To Kill a Mockingbird", "0061120081"],
+      ["Pride and Prejudice", "0679783261"],
+      ["Jane Eyre", "0142437204"],
+      ["The Little Prince", "0156012197"]
+    ].each do |title, isbn|
       Book.create!(title: title, isbn: isbn)
     end
   end

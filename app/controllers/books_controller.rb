@@ -20,7 +20,15 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.includes(ratings: :user).all
+
+    if current_user
+      @books.each do |book|
+        unless book.rating_by(current_user)
+          book.ratings.build(user: current_user)
+        end
+      end
+    end
   end
 
   private

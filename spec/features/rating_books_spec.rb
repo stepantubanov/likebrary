@@ -18,7 +18,6 @@ feature 'Rating books' do
     click_button 'Add'
 
     page.should have_content 'The Hobbit'
-    page.should have_content 'Average Rating: 5'
     within '.rating' do
       page.should have_checked_field '5'
     end
@@ -35,7 +34,6 @@ feature 'Rating books' do
     end
     click_button 'Rate'
 
-    page.should have_content 'Average Rating: 4'
     within '.rating' do
       page.should have_checked_field '4'
     end
@@ -59,6 +57,5 @@ feature 'Rating books' do
     within '.rating' do
       page.should have_checked_field '4'
     end
-    page.should have_content 'Average Rating: 4'
   end
 end

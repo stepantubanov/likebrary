@@ -1,0 +1,18 @@
+<li>
+  <%= rating_title(rating) %>:
+
+  <% if current_user == rating.user %>
+    <%= form_for rating, method: :put, url: book_rating_path(rating.book_id, rating.user_id) do |f| %>
+      <div class="rating">
+        <% 1.upto(5) do |rating| %>
+          <label class="radio inline">
+            <%= f.radio_button :value, rating %> <%= rating %>
+          </label>
+        <% end %>
+      </div>
+      <%= f.submit 'Rate' %>
+    <% end %>
+  <% else %>
+    <%= rating.value %>
+  <% end %>
+</li>

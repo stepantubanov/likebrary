@@ -1,0 +1,11 @@
+<div class="book">
+  <h3><%= book.title %></h3>
+  <p><%= book.isbn %></p>
+
+  <ul class="ratings">
+    <% book.ratings.each do |rating| %>
+      <%= render rating %>
+    <% end %>
+  </ul>
+</div>
+
