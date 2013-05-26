@@ -1,4 +1,4 @@
-# Likebrary
+# Likebrary [![Code Climate](https://codeclimate.com/github/stepantubanov/likebrary.png)](https://codeclimate.com/github/stepantubanov/likebrary)
 
 - Needs to be in Ruby on Rails
 - Needs to be developed using TDD
